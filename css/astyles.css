@@ -1,0 +1,97 @@
+body {
+  /*background: black;*/
+  margin: 0;
+  overflow: hidden;
+}
+
+.headers {
+  position: absolute;
+  top: 33%;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 75px;
+}
+
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-weight: 400;
+  line-height: 10px;
+  font-size: 30px;
+}
+
+p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: right;
+  padding-right: 35px;
+}
+
+header .navbar u1 {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header .navbar u1 li {
+  display: inline-block;
+  margin-left: 35px;
+}
+
+header .navbar u1 li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 60px;
+  font-weight: 350;
+  position: relative;
+}
+
+header .navbar u1 li a::before {
+  content: "";
+  height: 3px;
+  background-color: lightblue;
+  width: 0%;
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  bottom: -1px;
+  top: 100%;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+header .navbar u1 li a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+main {
+  width: 100%;
+}
+
+/*Page Transition*/
+.transition-fade {
+  opacity: 1;
+  transition: 1s;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
