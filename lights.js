@@ -28,8 +28,6 @@ function init() {
     // MAIN LIGHTS
     let directionalLight = new THREE.DirectionalLight(0x0000cd);
     directionalLight.position.set(0, 0, 1);
-    // mainLights.push(directionalLight);
-    // scene.add(directionalLight);
 
     let lightOne = new THREE.PointLight(0x2e8b57, 50, 450, 1.7);
     lightOne.position.set(200, 300, 100);
