@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow: overlay;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+
+
+    section {
+      height: 100vh;
+      width: 100vw;
+      z-index: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      &:nth-of-type(1) {
+        justify-content: center;
+        align-items: center;
+      }
+
+      &:nth-of-type(2) {
+        left: 10%;
+        padding-top: 20vh;
+      }
+    }
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 1px;
+  background-color: rgb(0, 0, 0);
+}
+
+canvas {
+  position: fixed;
+  top: 0px;
+  left: 0;
+}
+
+h1 {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 15px;
+}
+
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(159, 185, 233);
+  font-weight: 200;
+}
+
+h3 {
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+  line-height: 15px;
+}
+
+.btn {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: #839ffc9c;
+  margin: 20px;
+  border-radius: 30%;
+  box-shadow: 0 10px 15px -10px #00000070;
+  color: #181aad;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn i {
+  line-height: 60px;
+  font-size: 26px;
+}
+
+.btn:hover i {
+  transform: scale(1.1);
+}
+
+.btn:hover {
+  background: #c3ceecc4;
+}
+
+.projects {
+  padding-top: 12vh;
+}
+.project {
+  width: 40vw;
+  height: 15vh;
+  left: 15%;
+  background-color: #83265959;
+  margin-bottom: 5vh;
+  animation-name: floating;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  &:nth-of-type(1) {
+    animation-duration: 3.2s;
+  }
+  &:nth-of-type(2) {
+    animation-duration: 3.1s;
+  }
+  &:nth-of-type(3) {
+    animation-duration: 3.5s;
+  }
+  &:nth-of-type(4) {
+    animation-duration: 3.4s;
+  }
+}
+
+.project:hover {
+  width: 40vw;
+  height: 15vh;
+  left: 15%;
+  background-color: #832659b9;
+  margin-bottom: 5vh;
+  animation: none;
+}
+
+
+.title {
+  color: white;
+  margin-left: 1vw;
+  padding-top: 4vh;
+  padding-bottom: 2vh;
+  text-decoration: underline;
+  text-underline-offset: 0.5vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 15px;
+}
+.desc {
+  color: white;
+  margin-left: 1vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 15px;
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 10px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
+.scrollsign {
+  color:rgba(255, 255, 255, 0.65);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  font-weight: 150;
+  animation-name: floating;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-top: 20vh;
+}
+
+@mixin glitchCopy { 
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+}
+
+.title:hover {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  margin-left: 1vw;
+  padding-top: 4vh;
+  padding-bottom: 2vh;
+  text-decoration: underline;
+  text-underline-offset: 0.5vh;
+  font-weight: 400;
+	position: relative;
+	color: white;
+	/* Animation provies a slight random skew. Check bottom of doc
+	for more information on how to random skew. */
+	animation: glitch-skew 2s infinite linear alternate-reverse;
+	
+&::before{
+		// Duplicates our text with the mixin.
+		@include glitchCopy;
+		// Scoots text slightly to the left for the color offset.
+		left: 2px;
+		// Creates the color 'shadow' that happens on the glitch.
+    padding-top: 4vh;
+		text-shadow: -2px 0 #b90f8f;
+		/* Creates an initial clip for our glitch. This works in
+		a typical top,right,bottom,left fashion and creates a mask
+		to only show a certain part of the glitch at a time. */
+		clip: rect(44px, 450px, 56px, 0);
+		/* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+		with an alternating animation to keep things fresh. */
+		animation: glitch-anim 5s infinite linear alternate-reverse;
+	}
+	
+	// Creates a copy after our text. Note comments from ::before.
+	&::after {
+		@include glitchCopy;
+		left: -2px;
+    padding-top: 4vh;
+		text-shadow: -2px 0 #0099ff, 2px 2px #990d76;
+		animation: glitch-anim2 1s infinite linear alternate-reverse;
+	}
+}
+
+/* Creates an animation with 20 steaps. For each step, it calculates 
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+// Same deal, just duplicated for ultra randomness.
+@keyframes glitch-anim2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+// Does the same deal as before, but now only skews. Used for main text.
+@keyframes glitch-skew {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
+  }
+}
