@@ -42,19 +42,19 @@
       <section class="bottom">
           <!-- <h3>Projects</h3> -->
           <div class="projects">
-              <div class="project">
+              <div class="project" id="p1">
                 <div class="title" data-text='Unsorted Polyphonic Transcription'>Unsorted Polyphonic Transcription</div>
                 <div class="desc">Melody seperation and MIDI generation from unsorted audio</div>
               </div>
-              <div class="project">
+              <div class="project" id="p2">
                 <div class="title" data-text="Fun Farm">Fun Farm</div>
                 <div class="desc">A farm simulator game built with Java and JavaFX</div>
               </div>
-              <div class="project">
+              <div class="project" id="p3">
                 <div class="title" data-text="UFO Study">UFO Study</div>
                 <div class="desc">Using politics, earthquakes, and drugs to prove Aliens exist</div>
               </div>
-              <div class="project">
+              <div class="project" id="p4">
                 <div class="title" data-text="Bee Buzzer">Bee Buzzer</div>
                 <div class="desc">A GT-themed cookie-clicker game made for android</div>
               </div>
@@ -65,13 +65,65 @@
         "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
     </script>
     <script>
-         $(document).ready(function(){
+        let clicked = false;
+        $(document).ready(function(){
             $(window).scroll(function(){
                 $('.top').css("opacity", 1- $(window).scrollTop() / 300)
                 $('.top').css("opacity", 1- $(window).scrollTop() / 300)
                 $('.bottom').css("opacity", $(window).scrollTop() / 500)
             })
         })
+        $(".scrollsign").on("click", function(e) {
+            $("html, body").animate({ scrollTop: 800 }, 600);
+        });
+        // main functionality
+        $("#p1").on("click", function(e) {solo1();});
+        $("#p2").on("click", function(e) {solo2();});
+        $('#p3').on("click", function(e) {solo3();});
+        $("#p4").on("click", function(e) {solo4()});
+        function solo1() {
+          if (!clicked) {
+              $('#p2').fadeOut('slow', 0)
+              $('#p3').fadeOut('slow', 0)
+              $('#p4').fadeOut('slow', 0)
+              $("#p1").css({left: 0, position:'absolute'});
+              $('#p1').css({background: 'none'})
+              document.getElementById("p1").disabled = true;
+          }
+        }
+        function solo2() {
+          if (!clicked) {
+            $('#p1').fadeOut('slow', 0)
+            $('#p3').fadeOut('slow', 0)
+            $('#p4').fadeOut('slow', 0)
+            $("#p2").css({left: 0, position:'absolute'});
+            $('#p2').animate({ "top": "-=100px" }, "slow" );
+            $('#p2').css({background: 'none'})
+            clicked = true;
+          }
+        }
+        function solo3() {
+          if(!clicked) {
+            $('#p1').fadeOut('slow', 0)
+            $('#p2').fadeOut('slow', 0)
+            $('#p4').fadeOut('slow', 0)
+            $("#p3").css({left: 0, position:'absolute'});
+            $('#p3').animate({ "top": "-=200px" }, "slow" );
+            $('#p3').css({background: 'none'})
+            clicked = true;
+          }
+        }
+        function solo4() {
+          if(!clicked) {
+            $('#p1').fadeOut('slow', 0)
+            $('#p2').fadeOut('slow', 0)
+            $('#p3').fadeOut('slow', 0)
+            $("#p4").css({left: 0, position:'absolute'});
+            $('#p4').animate({ "top": "-=300px" }, "slow" );
+            $('#p4').css({background: 'none'})
+            clicked = true;
+          }
+        }
     </script>
 
     <script src="three.min.js"></script>
