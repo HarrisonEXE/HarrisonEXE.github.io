@@ -127,7 +127,6 @@ h3 {
   animation: none;
 }
 
-
 .title {
   color: white;
   background: none;
@@ -169,6 +168,21 @@ h3 {
   margin-top: 20vh;
 }
 
+.back {
+  top: 14vh;
+  width: 5vw;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  color: white;
+  font-weight: 500;
+  border: 1px solid white;
+  display: none;
+}
+.back:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
 @mixin glitchCopy { 
 		content: attr(data-text);
 		position: absolute;
@@ -189,28 +203,17 @@ h3 {
   font-weight: 400;
 	position: relative;
 	color: white;
-	/* Animation provies a slight random skew. Check bottom of doc
-	for more information on how to random skew. */
 	animation: glitch-skew 2s infinite linear alternate-reverse;
 	
 &::before{
-		// Duplicates our text with the mixin.
 		@include glitchCopy;
-		// Scoots text slightly to the left for the color offset.
 		left: 2px;
-		// Creates the color 'shadow' that happens on the glitch.
     padding-top: 4vh;
 		text-shadow: -2px 0 #b90f8f;
-		/* Creates an initial clip for our glitch. This works in
-		a typical top,right,bottom,left fashion and creates a mask
-		to only show a certain part of the glitch at a time. */
 		clip: rect(44px, 450px, 56px, 0);
-		/* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
-		with an alternating animation to keep things fresh. */
 		animation: glitch-anim 5s infinite linear alternate-reverse;
 	}
 	
-	// Creates a copy after our text. Note comments from ::before.
 	&::after {
 		@include glitchCopy;
 		left: -2px;
@@ -220,10 +223,6 @@ h3 {
 	}
 }
 
-/* Creates an animation with 20 steaps. For each step, it calculates 
-a percentage for the specific step. It then generates a random clip
-box to be used for the random glitch effect. Also adds a very subtle
-skew to change the 'thickness' of the glitch.*/
 @keyframes glitch-anim {
   $steps: 20;
   @for $i from 0 through $steps {

@@ -58,6 +58,7 @@
                 <div class="title" data-text="Bee Buzzer">Bee Buzzer</div>
                 <div class="desc">A GT-themed cookie-clicker game made for android</div>
               </div>
+              <div class="back">BACK</div>
           </div>
       </section>
     </div>
@@ -77,6 +78,18 @@
             $("html, body").animate({ scrollTop: 800 }, 600);
         });
         // main functionality
+        $(".back").on("click", function(e) {
+            $('#p1').fadeIn('slow', 0)
+            $('#p2').fadeIn('slow', 0)
+            $('#p3').fadeIn('slow', 0)
+            $('#p4').fadeIn('slow', 0)
+            $(".back").css({display:'none'})
+            $('#p1').css({position: 'relative', left: 0, top:0, background: '#83265959'})
+            $('#p2').css({position: 'relative', left: 0, top:0, background: '#83265959'})
+            $('#p3').css({position: 'relative', left: 0, top:0, background: '#83265959'})
+            $('#p4').css({position: 'relative', left: 0, top:0, background: '#83265959'})
+            clicked = false;
+        });
         $("#p1").on("click", function(e) {solo1();});
         $("#p2").on("click", function(e) {solo2();});
         $('#p3').on("click", function(e) {solo3();});
@@ -87,8 +100,10 @@
               $('#p3').fadeOut('slow', 0)
               $('#p4').fadeOut('slow', 0)
               $("#p1").css({left: 0, position:'absolute'});
+              $('#p1').animate({ "top": "150" }, "slow" );
               $('#p1').css({background: 'none'})
-              document.getElementById("p1").disabled = true;
+              $('.back').css({display: 'block', position:'absolute', left:10, top:500})
+              clicked=true;
           }
         }
         function solo2() {
@@ -97,8 +112,9 @@
             $('#p3').fadeOut('slow', 0)
             $('#p4').fadeOut('slow', 0)
             $("#p2").css({left: 0, position:'absolute'});
-            $('#p2').animate({ "top": "-=100px" }, "slow" );
+            $('#p2').animate({ "top": "150" }, "slow" );
             $('#p2').css({background: 'none'})
+            $('.back').css({display: 'block', position:'absolute', left:10, top:500})
             clicked = true;
           }
         }
@@ -108,8 +124,9 @@
             $('#p2').fadeOut('slow', 0)
             $('#p4').fadeOut('slow', 0)
             $("#p3").css({left: 0, position:'absolute'});
-            $('#p3').animate({ "top": "-=200px" }, "slow" );
+            $('#p3').animate({ "top": "150" }, "slow" );
             $('#p3').css({background: 'none'})
+            $('.back').css({display: 'block', position:'absolute', left:10, top:500})
             clicked = true;
           }
         }
@@ -119,8 +136,9 @@
             $('#p2').fadeOut('slow', 0)
             $('#p3').fadeOut('slow', 0)
             $("#p4").css({left: 0, position:'absolute'});
-            $('#p4').animate({ "top": "-=300px" }, "slow" );
+            $('#p4').animate({ "top": "150" }, "slow" );
             $('#p4').css({background: 'none'})
+            $('.back').css({display: 'block', position:'absolute', left:10, top:500})
             clicked = true;
           }
         }
