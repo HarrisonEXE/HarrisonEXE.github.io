@@ -8,7 +8,6 @@ altLights = [],
 mainLights = [],
 rotation = 0.004;
 
-
 function init() {
     scene = new THREE.Scene();
 
@@ -165,10 +164,8 @@ function render() {
     requestAnimationFrame(render);
 }
 
-
 document.body.onscroll = moveCamera;
 init();
-
 
 function moveCamera() {
     const t = document.body.getBoundingClientRect().top;
@@ -177,6 +174,5 @@ function moveCamera() {
         mainLights[i].intensity = 50 + t * 0.05;
     }
     camera.position.z = t * -0.07;
-
 }
 moveCamera();
