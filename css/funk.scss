@@ -169,6 +169,48 @@ h3 {
   margin-top: 20vh;
 }
 
+.projectInfo {
+  height: 45vh;
+  width: 50vw;
+  top: 42vh;
+  left: 2vh;
+  display: none;
+  position: absolute;
+  overflow-y: scroll;
+  // border: 1px solid red;
+  padding-right: 2vw;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: white;
+  font-weight: 300;
+
+  @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  & {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+  @include scrollbars(.5em, rgba(3, 3, 3, 0.335));
+}
+
+
+
 .back {
   top: 14vh;
   width: 5vw;
